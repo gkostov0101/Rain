@@ -14,4 +14,6 @@ class AURA_API ARainCharacter : public ARainCharacterBase
 {
 	GENERATED_BODY()
 	
+public:
+	ARainCharacter();
 };
