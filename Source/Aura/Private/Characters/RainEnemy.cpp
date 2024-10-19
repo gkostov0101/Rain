@@ -14,6 +14,7 @@ ARainEnemy::ARainEnemy()
 
 	AbilitySystemComponent = CreateDefaultSubobject<URainAbilitySystemComponent>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 
 	AttributeSet = CreateDefaultSubobject<URainAttributeSet>("AttributeSet");
 }
