@@ -2,8 +2,9 @@
 
 
 #include "Characters/RainCharacter.h"
-
+#include "AbilitySystemComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include <Player/RainPlayerState.h>
 
 ARainCharacter::ARainCharacter()
 {
@@ -15,4 +16,25 @@ ARainCharacter::ARainCharacter()
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationRoll = false;
 	bUseControllerRotationYaw = false;
+}
+
+void ARainCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+	InitAbilityActorInfo();
+}
+
+void ARainCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+	InitAbilityActorInfo();
+}
+
+void ARainCharacter::InitAbilityActorInfo()
+{
+	ARainPlayerState* RainPlayerState = GetPlayerState<ARainPlayerState>();
+	check(RainPlayerState);
+	RainPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(RainPlayerState, this);
+	AbilitySystemComponent = RainPlayerState->GetAbilitySystemComponent();
+	AttributeSet = RainPlayerState->GetAttributeSet();
 }
