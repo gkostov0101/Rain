@@ -13,6 +13,11 @@ ARainCharacterBase::ARainCharacterBase()
 
 }
 
+UAbilitySystemComponent* ARainCharacterBase::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
+
 void ARainCharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
