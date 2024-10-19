@@ -2,11 +2,15 @@
 
 
 #include "AbilitySystem/RainAttributeSet.h"
-#include "AbilitySystemComponent.h"
 #include "Net/UnrealNetwork.h"
 
 URainAttributeSet::URainAttributeSet()
 {
+	InitHealth(100.0f);
+	InitMaxHealth(100.0f);
+
+	InitMana(50.0f);
+	InitMaxMana(50.0f);
 }
 
 void URainAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
