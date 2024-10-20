@@ -14,3 +14,7 @@ void URainWidgetController::SetWidgetControllerParams(const FWidgetControllerPar
 void URainWidgetController::BroadcastInitialValues()
 {
 }
+
+void URainWidgetController::BindCallbacksToDependencies()
+{
+}

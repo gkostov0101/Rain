@@ -6,7 +6,7 @@
 
 URainAttributeSet::URainAttributeSet()
 {
-	InitHealth(100.0f);
+	InitHealth(50.0f);
 	InitMaxHealth(100.0f);
 
 	InitMana(50.0f);
