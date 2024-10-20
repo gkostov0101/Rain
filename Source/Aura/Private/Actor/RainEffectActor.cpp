@@ -34,6 +34,7 @@ void ARainEffectActor::OnOverlap(UPrimitiveComponent* OverlappedComponent,
 		URainAttributeSet* MutableRainAttributeSet = const_cast<URainAttributeSet*>(AttributeSet);
 
 		MutableRainAttributeSet->SetHealth(AttributeSet->GetHealth() + 25.0f);
+		MutableRainAttributeSet->SetMana(AttributeSet->GetMana() - 25.0f);
 		Destroy();
 	}
 }
