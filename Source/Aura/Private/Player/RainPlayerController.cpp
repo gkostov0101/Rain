@@ -61,9 +61,12 @@ void ARainPlayerController::BeginPlay()
 	check(RainContext);
 
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(Subsystem);
-	Subsystem->AddMappingContext(RainContext, 0);
-
+	
+	if(Subsystem)
+	{
+		Subsystem->AddMappingContext(RainContext, 0);
+	}
+	
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
 

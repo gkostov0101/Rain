@@ -6,6 +6,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include <Player/RainPlayerState.h>
 
+#include "Player/RainPlayerController.h"
+#include "UI/HUD/RainHUD.h"
+
 ARainCharacter::ARainCharacter()
 {
 	GetCharacterMovement()->bOrientRotationToMovement = true;
@@ -37,4 +40,12 @@ void ARainCharacter::InitAbilityActorInfo()
 	RainPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(RainPlayerState, this);
 	AbilitySystemComponent = RainPlayerState->GetAbilitySystemComponent();
 	AttributeSet = RainPlayerState->GetAttributeSet();
+
+	if (ARainPlayerController* RainPlayerController = Cast<ARainPlayerController>(GetController()))
+	{
+		if (ARainHUD* RainHUD = Cast<ARainHUD>(RainPlayerController->GetHUD()))
+		{
+			RainHUD->InitOverlay(RainPlayerController, RainPlayerState, AbilitySystemComponent, AttributeSet);
+		}
+	}
 }
