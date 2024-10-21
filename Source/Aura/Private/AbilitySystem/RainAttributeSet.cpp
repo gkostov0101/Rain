@@ -10,7 +10,7 @@ URainAttributeSet::URainAttributeSet()
 	InitMaxHealth(100.0f);
 
 	InitMana(50.0f);
-	InitMaxMana(50.0f);
+	InitMaxMana(150.0f);
 }
 
 void URainAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
