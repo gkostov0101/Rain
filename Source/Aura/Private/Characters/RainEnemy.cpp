@@ -38,5 +38,11 @@ void ARainEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 
+	InitAbilityActorInfo();
+}
+
+void ARainEnemy::InitAbilityActorInfo()
+{
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	Cast<URainAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
 }

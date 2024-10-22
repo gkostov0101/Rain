@@ -23,3 +23,7 @@ void ARainCharacterBase::BeginPlay()
 	Super::BeginPlay();
 	
 }
+
+void ARainCharacterBase::InitAbilityActorInfo()
+{
+}

@@ -6,6 +6,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include <Player/RainPlayerState.h>
 
+#include "AbilitySystem/RainAbilitySystemComponent.h"
 #include "Player/RainPlayerController.h"
 #include "UI/HUD/RainHUD.h"
 
@@ -38,6 +39,9 @@ void ARainCharacter::InitAbilityActorInfo()
 	ARainPlayerState* RainPlayerState = GetPlayerState<ARainPlayerState>();
 	check(RainPlayerState);
 	RainPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(RainPlayerState, this);
+
+	Cast<URainAbilitySystemComponent>(RainPlayerState->GetAbilitySystemComponent())->AbilityActorInfoSet();
+	
 	AbilitySystemComponent = RainPlayerState->GetAbilitySystemComponent();
 	AttributeSet = RainPlayerState->GetAttributeSet();
 
