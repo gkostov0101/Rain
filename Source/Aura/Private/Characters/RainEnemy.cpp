@@ -34,6 +34,11 @@ void ARainEnemy::UnHighlightActor()
 	Weapon->SetRenderCustomDepth(false);
 }
 
+int32 ARainEnemy::GetPlayerLevel()
+{
+	return Level;
+}
+
 void ARainEnemy::BeginPlay()
 {
 	Super::BeginPlay();

@@ -5,6 +5,7 @@
 
 #include "AbilitySystem/RainAbilitySystemComponent.h"
 #include "AbilitySystem/RainAttributeSet.h"
+#include "Net/UnrealNetwork.h"
 
 ARainPlayerState::ARainPlayerState()
 {
@@ -17,7 +18,18 @@ ARainPlayerState::ARainPlayerState()
 	NetUpdateFrequency = 100.0f;
 }
 
+void ARainPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ARainPlayerState, Level);
+}
+
 UAbilitySystemComponent* ARainPlayerState::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
+}
+
+void ARainPlayerState::OnRep_Level(int32 OldLevel)
+{
 }

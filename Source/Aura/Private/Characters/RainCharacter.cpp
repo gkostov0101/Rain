@@ -34,6 +34,13 @@ void ARainCharacter::OnRep_PlayerState()
 	InitAbilityActorInfo();
 }
 
+int32 ARainCharacter::GetPlayerLevel()
+{
+	const ARainPlayerState* AuraPlayerState = GetPlayerState<ARainPlayerState>();
+	check(AuraPlayerState);
+	return AuraPlayerState->GetPlayerLevel();
+}
+
 void ARainCharacter::InitAbilityActorInfo()
 {
 	ARainPlayerState* RainPlayerState = GetPlayerState<ARainPlayerState>();
