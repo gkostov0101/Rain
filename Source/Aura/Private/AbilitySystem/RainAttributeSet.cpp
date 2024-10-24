@@ -82,6 +82,15 @@ void URainAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectMo
 	
 	FEffectProperties Props;
 	SetEffectProperties(Data, Props);
+
+	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	{
+		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
+	}
+	if (Data.EvaluatedData.Attribute == GetManaAttribute())
+	{
+		SetMana(FMath::Clamp(GetMana(), 0.f, GetMaxMana()));
+	}
 }
 
 void URainAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth) const
