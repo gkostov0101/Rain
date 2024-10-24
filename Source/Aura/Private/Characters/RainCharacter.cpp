@@ -52,4 +52,5 @@ void ARainCharacter::InitAbilityActorInfo()
 			RainHUD->InitOverlay(RainPlayerController, RainPlayerState, AbilitySystemComponent, AttributeSet);
 		}
 	}
+	InitializePrimaryAttributes();
 }

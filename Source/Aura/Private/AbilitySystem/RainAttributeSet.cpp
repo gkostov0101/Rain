@@ -25,13 +25,20 @@ void URainAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Resilience, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Vigor, COND_None, REPNOTIFY_Always);
 
-	// Health
-	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Health, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always);
-
-	// Mana
-	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Mana, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Armor, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, ArmorPenetration, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, BlockChance, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, CriticalHitChance, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, CriticalHitDamage, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, CriticalHitResistance, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, HealthRegeneration, COND_None, REPNOTIFY_Always);	
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, ManaRegeneration, COND_None, REPNOTIFY_Always);	
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always);	
 	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, MaxMana, COND_None, REPNOTIFY_Always);
+	
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Health, COND_None, REPNOTIFY_Always);
+	
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Mana, COND_None, REPNOTIFY_Always);
 }
 
 void URainAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
@@ -103,19 +110,9 @@ void URainAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth) co
 	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Health, OldHealth);
 }
 
-void URainAttributeSet::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, MaxHealth, OldMaxHealth);
-}
-
 void URainAttributeSet::OnRep_Mana(const FGameplayAttributeData& OldMana) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Mana, OldMana);
-}
-
-void URainAttributeSet::OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, MaxMana, OldMaxMana);
 }
 
 void URainAttributeSet::OnRep_Strength(const FGameplayAttributeData& OldStrength) const
@@ -136,4 +133,47 @@ void URainAttributeSet::OnRep_Resilience(const FGameplayAttributeData& OldResili
 void URainAttributeSet::OnRep_Vigor(const FGameplayAttributeData& OldVigor) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Vigor, OldVigor);
+}
+
+void URainAttributeSet::OnRep_Armor(const FGameplayAttributeData& OldArmor) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Armor, OldArmor);
+}
+void URainAttributeSet::OnRep_ArmorPenetration(const FGameplayAttributeData& OldArmorPenetration) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, ArmorPenetration, OldArmorPenetration);
+}
+void URainAttributeSet::OnRep_BlockChance(const FGameplayAttributeData& OldBlockChance) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, BlockChance, OldBlockChance);
+}
+void URainAttributeSet::OnRep_CriticalHitChance(const FGameplayAttributeData& OldCriticalHitChance) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, CriticalHitChance, OldCriticalHitChance);
+}
+void URainAttributeSet::OnRep_CriticalHitDamage(const FGameplayAttributeData& OldCriticalHitDamage) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, CriticalHitDamage, OldCriticalHitDamage);
+}
+void URainAttributeSet::OnRep_CriticalHitResistance(const FGameplayAttributeData& OldCriticalHitResistance) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, CriticalHitResistance, OldCriticalHitResistance);
+}
+
+void URainAttributeSet::OnRep_HealthRegeneration(const FGameplayAttributeData& OldHealthRegeneration) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, HealthRegeneration, OldHealthRegeneration);
+}
+
+void URainAttributeSet::OnRep_ManaRegeneration(const FGameplayAttributeData& OldManaRegeneration) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, ManaRegeneration, OldManaRegeneration);
+}
+void URainAttributeSet::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, MaxHealth, OldMaxHealth);
+}
+void URainAttributeSet::OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, MaxMana, OldMaxMana);
 }

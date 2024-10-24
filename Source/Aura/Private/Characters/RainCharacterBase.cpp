@@ -2,6 +2,7 @@
 
 
 #include "Characters/RainCharacterBase.h"
+#include "AbilitySystemComponent.h"
 
 ARainCharacterBase::ARainCharacterBase()
 {
@@ -26,4 +27,13 @@ void ARainCharacterBase::BeginPlay()
 
 void ARainCharacterBase::InitAbilityActorInfo()
 {
+}
+
+void ARainCharacterBase::InitializePrimaryAttributes() const
+{
+	check(IsValid(GetAbilitySystemComponent()));
+	check(DefaultPrimaryAttributes);
+	const FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
+	const FGameplayEffectSpecHandle SpecHandle = GetAbilitySystemComponent()->MakeOutgoingSpec(DefaultPrimaryAttributes, 1.f, ContextHandle);
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*SpecHandle.Data.Get(), GetAbilitySystemComponent());
 }
