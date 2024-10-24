@@ -9,8 +9,6 @@
 
 URainAttributeSet::URainAttributeSet()
 {
-	InitHealth(50.0f);
-	InitMana(50.0f);
 }
 
 void URainAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
