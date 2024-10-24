@@ -20,6 +20,11 @@ void URainAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Strength, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Intelligence, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Resilience, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Vigor, COND_None, REPNOTIFY_Always);
+
 	// Health
 	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, Health, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(URainAttributeSet, MaxHealth, COND_None, REPNOTIFY_Always);
@@ -111,4 +116,24 @@ void URainAttributeSet::OnRep_Mana(const FGameplayAttributeData& OldMana) const
 void URainAttributeSet::OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, MaxMana, OldMaxMana);
+}
+
+void URainAttributeSet::OnRep_Strength(const FGameplayAttributeData& OldStrength) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Strength, OldStrength);
+}
+
+void URainAttributeSet::OnRep_Intelligence(const FGameplayAttributeData& OldIntelligence) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Intelligence, OldIntelligence);
+}
+
+void URainAttributeSet::OnRep_Resilience(const FGameplayAttributeData& OldResilience) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Resilience, OldResilience);
+}
+
+void URainAttributeSet::OnRep_Vigor(const FGameplayAttributeData& OldVigor) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URainAttributeSet, Vigor, OldVigor);
 }
